@@ -4,7 +4,14 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require '../vendor/autoload.php';
 
-$app = new \Slim\App;
+$config['displayErrorDetails'] = true;
+
+$config['db']['host']   = "localhost";
+$config['db']['user']   = "slimphp-tutorial";
+$config['db']['pass']   = "fyvzcuc-ghgbevny";
+$config['db']['dbname'] = "slimphp-tutorial";
+
+$app = new \Slim\App(["settings" => $config]);
 $app->get('/hello/{name}', function (Request $request, Response $response) {
     $name = $request->getAttribute('name');
     $response->getBody()->write("Hello, $name");

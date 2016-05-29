@@ -30,3 +30,13 @@ sudo apachectl -e info -k restart
 ```
 
 Test using `curl http://slimphp-tutorial.local/hello/world`.
+
+### MySQL
+
+Using MySQL Workbench:
+- create schema `slimphp-tutorial`
+- create user `slimphp-tutorial`/`fyvzcuc-ghgbevny`, with all privileges on `slimphp-tutorial`
+
+```
+mysql -uslimphp-tutorial -pfyvzcuc-ghgbevny -Dslimphp-tutorial
+```

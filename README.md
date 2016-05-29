@@ -29,4 +29,4 @@ Restart Apache:
 sudo apachectl -e info -k restart
 ```
 
-Test using `curl http://slimphp-tutorial.local/`.
+Test using `curl http://slimphp-tutorial.local/hello/world`.

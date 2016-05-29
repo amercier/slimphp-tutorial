@@ -1,18 +1,42 @@
-# Slim Framework 3 Skeleton Application
+Slim PHP Framework Tutorial
+===========================
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
+Local setup
+-----------
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+### Apache 2.4 (El Capitan)
 
-## Install the Application
+In `/etc/hosts`:
 
-Run this command from the directory in which you want to install your new Slim Framework application.
+```
+127.0.0.1 slimphp-tutorial.local
+```
 
-    php composer.phar create-project slim/slim-skeleton [my-app-name]
+In `/private/etc/apache2/extra/httpd-vhosts.conf`:
 
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
+```httpdconf
+<VirtualHost *:80>
+    DocumentRoot "/Users/amercier/Workspace/slimphp-tutorial/src/public"
+    ServerName slimphp-tutorial.local
+    ErrorLog "/private/var/log/apache2/slimphp-tutorial_error.log"
+    CustomLog "/private/var/log/apache2/slimphp-tutorial_access.log" common
+</VirtualHost>
+```
 
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writeable.
+Restart Apache:
 
-That's it! Now go build something cool.
+```
+sudo apachectl -e info -k restart
+```
+
+Test using `curl http://slimphp-tutorial.local/hello/world`.
+
+### MySQL
+
+Using MySQL Workbench:
+- create schema `slimphp-tutorial`
+- create user `slimphp-tutorial`/`fyvzcuc-ghgbevny`, with all privileges on `slimphp-tutorial`
+
+```
+mysql -uslimphp-tutorial -pfyvzcuc-ghgbevny -Dslimphp-tutorial
+```

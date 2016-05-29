@@ -13,5 +13,13 @@ return [
             'name' => 'slim-app',
             'path' => __DIR__ . '/../logs/app.log',
         ],
+
+        // Database
+        'db' => [
+          'host' => 'localhost',
+          'user' => 'slimphp-tutorial',
+          'pass' => 'fyvzcuc-ghgbevny',
+          'dbname' => 'slimphp-tutorial',
+        ],
     ],
 ];

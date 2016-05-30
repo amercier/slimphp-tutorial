@@ -9,12 +9,18 @@ if (PHP_SAPI == 'cli-server') {
 }
 
 require __DIR__ . '/../vendor/autoload.php';
+spl_autoload_register(function ($classname) {
+    require ("../src/classes/" . $classname . ".php");
+});
 
 session_start();
 
 // Instantiate the app
 $settings = require __DIR__ . '/../src/settings.php';
 $app = new \Slim\App($settings);
+
+$app->getReponse()->getHeaders()->set('Content-type', 'application/json');
+$app->add(new \Slim\Middleware\ContentTypes());
 
 // Set up dependencies
 require __DIR__ . '/../src/dependencies.php';
